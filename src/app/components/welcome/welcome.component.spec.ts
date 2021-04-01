@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { UserService } from './user.service';
 import { WelcomeComponent } from './welcome.component';
@@ -22,8 +23,7 @@ xdescribe('WelcomeComponent', () => {
       declarations: [ WelcomeComponent ],
       // Don't provide the real service! Provide a test-double instead
       providers: [{ provide: UserService, useValue: userServiceStub }],
-      //@todo: add schema
-      schemas: []
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
   
     fixture = TestBed.createComponent(WelcomeComponent);

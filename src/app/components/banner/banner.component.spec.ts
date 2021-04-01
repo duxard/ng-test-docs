@@ -1,4 +1,4 @@
-import { DebugElement } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
@@ -13,8 +13,7 @@ describe('BannerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BannerComponent ],
       imports: [ FormsModule ],
-      //@todo: add schema
-      schemas: []
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
