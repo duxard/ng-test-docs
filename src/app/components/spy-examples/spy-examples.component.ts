@@ -5,5 +5,7 @@ import { Component } from '@angular/core';
   template: ``
 })
 export class SpyExamplesComponent {
-
+  foo(): number {
+    return 100;
+  }
 }

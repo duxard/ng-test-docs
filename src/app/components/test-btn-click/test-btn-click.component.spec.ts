@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, waitForAsync, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync, fakeAsync, tick } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { TestBtnClickComponent } from './test-btn-click.component';
 import { By } from '@angular/platform-browser';
@@ -38,7 +38,7 @@ describe('TestBtnClickComponent', () => {
 
   it('should click Send button with async', waitForAsync(() => {
     let buttonElement = fixture.debugElement.query(By.css('.send-button'));
-    
+
     spyOn(component, 'sendData');
     //Trigger click event after spyOn
     buttonElement.triggerEventHandler('click', null);
@@ -54,30 +54,30 @@ describe('TestBtnClickComponent', () => {
     buttonElement.triggerEventHandler('click', null);
     expect(component.sendData).toHaveBeenCalled();
   });
-  
+
   /*
     The fakeAsync is the Angular testing API that wraps a test function in a fake asynchronous test zone. The tick() simulates the asynchronous passage of time.
-  */ 
+  */
   it('should click Send button with fakeAsync', fakeAsync(() => {
     let buttonElement = fixture.debugElement.query(By.css('.send-button'));
-    
+
     spyOn(component, 'sendData');
-    //Trigger click event after spyOn
+    // Trigger click event after spyOn
     buttonElement.triggerEventHandler('click', null);
-    
+
     tick();
     expect(component.sendData).toHaveBeenCalled();
-  }));  
-  
+  }));
+
   it('should click Edit button', fakeAsync(() => {
     let buttonElement = fixture.debugElement.query(By.css('.edit-button'));
-    
+
     spyOn(component, 'editPerson');
-    //Trigger click event after spyOn
+    // Trigger click event after spyOn
     buttonElement.triggerEventHandler('click', null);
-    
+
     tick();
     expect(component.editPerson).toHaveBeenCalled();
-  }));  
+  }));
 
 });
