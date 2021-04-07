@@ -1,4 +1,5 @@
-import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { SpyExamplesComponent } from './spy-examples.component';
 
 describe('SpyExamplesComponent', () => {
@@ -11,19 +12,26 @@ describe('SpyExamplesComponent', () => {
     })
     .compileComponents();
   }));
-
   beforeEach(() => {
     fixture = TestBed.createComponent(SpyExamplesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-//@todo: rewrite the test
-  it('spy on function', fakeAsync(() => {
+
+  it('simple spy for function - #1', () => {
     spyOn(component, 'foo').and.callFake(() => {
-      console.log('functionName called');
+      console.log('callFake called');
       return 111;
     });
-    tick(1000);
+    // function call
+    component.foo();
     expect(component.foo).toHaveBeenCalled();
-  }));
+  });
+
+  it('simple spy for function - #2', () => {
+    spyOn(component, 'foo').withArgs(1, 2, 3).and.returnValue(42);
+
+    expect(component.foo(1, 2, 3)).toBe(42);
+    expect(component.foo).toHaveBeenCalledTimes(1);
+  });
 });
