@@ -24,8 +24,8 @@ describe('TestBtnClickComponent', () => {
   });
 
   it('should click Set button', waitForAsync(() => {
-    let buttonElement = fixture.debugElement.query(By.css('.set-button'));
-    let p = fixture.debugElement.nativeElement.querySelector('p');
+    const buttonElement = fixture.debugElement.query(By.css('.set-button'));
+    const p = fixture.debugElement.nativeElement.querySelector('p');
 
     buttonElement.triggerEventHandler('click', null);
     fixture.detectChanges();
@@ -37,10 +37,10 @@ describe('TestBtnClickComponent', () => {
   }));
 
   it('should click Send button with async', waitForAsync(() => {
-    let buttonElement = fixture.debugElement.query(By.css('.send-button'));
+    const buttonElement = fixture.debugElement.query(By.css('.send-button'));
 
     spyOn(component, 'sendData');
-    //Trigger click event after spyOn
+    // Trigger click event after spyOn
     buttonElement.triggerEventHandler('click', null);
 
     fixture.whenStable().then(() => {
@@ -49,17 +49,18 @@ describe('TestBtnClickComponent', () => {
   }));
 
   xit('should click Send button - synchronous analog', () => {
-    let buttonElement = fixture.debugElement.query(By.css('.send-button'));
+    const buttonElement = fixture.debugElement.query(By.css('.send-button'));
     spyOn(component, 'sendData');
     buttonElement.triggerEventHandler('click', null);
     expect(component.sendData).toHaveBeenCalled();
   });
 
   /*
-    The fakeAsync is the Angular testing API that wraps a test function in a fake asynchronous test zone. The tick() simulates the asynchronous passage of time.
+    The fakeAsync is the Angular testing API that wraps a test function in a fake asynchronous test zone.
+    The tick() simulates the asynchronous passage of time.
   */
   it('should click Send button with fakeAsync', fakeAsync(() => {
-    let buttonElement = fixture.debugElement.query(By.css('.send-button'));
+    const buttonElement = fixture.debugElement.query(By.css('.send-button'));
 
     spyOn(component, 'sendData');
     // Trigger click event after spyOn
@@ -70,7 +71,7 @@ describe('TestBtnClickComponent', () => {
   }));
 
   it('should click Edit button', fakeAsync(() => {
-    let buttonElement = fixture.debugElement.query(By.css('.edit-button'));
+    const buttonElement = fixture.debugElement.query(By.css('.edit-button'));
 
     spyOn(component, 'editPerson');
     // Trigger click event after spyOn
