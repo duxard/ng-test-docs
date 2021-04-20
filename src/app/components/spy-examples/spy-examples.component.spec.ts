@@ -18,6 +18,10 @@ describe('SpyExamplesComponent - #1', () => {
     fixture.detectChanges();
   });
 
+  /**
+   *  [spyOn] - allows to spy on method that already exists,
+   *  method that is presented on a component
+   */
   it('simple spy for function - #1', () => {
     spyOn(component, 'foo').and.callFake(() => {
       console.log('callFake called');
@@ -36,12 +40,8 @@ describe('SpyExamplesComponent - #1', () => {
   });
 });
 
-/* Jasmine's createSpy() method is useful when you do not have any function
-to spy upon or when the call to the original function would inflict a lag in time
- (especially if it involves HTTP requests) or has other dependencies which may not
- be available in the current context. */
 
-describe('Multiple spies created with createSpyObj() - #1', () => {
+describe('Multiple spies created with createSpyObj() - example 1', () => {
   let ball;
 
   beforeEach(() => {
@@ -55,7 +55,7 @@ describe('Multiple spies created with createSpyObj() - #1', () => {
   });
 });
 
-describe('Multiple spies created with createSpyObj() -#2', () => {
+describe('Multiple spies created with createSpyObj() - example 2', () => {
   let ball;
 
   beforeEach(() => {
@@ -69,5 +69,29 @@ describe('Multiple spies created with createSpyObj() -#2', () => {
       expect(ball.roll).toHaveBeenCalled();
       expect(ball.bounce).toHaveBeenCalled();
       expect(ball.stop).toHaveBeenCalled();
+  });
+});
+
+/**
+ * [jasmine.createSpy(<name>)] -  method is useful when you do not have
+ * any function to spy upon (non-existing method) or when the call to the original function
+ * would inflict a lag in time (especially if it involves HTTP requests)
+ */
+describe('jasmine.createSpy examples', () => {
+  let fakeMethod: jasmine.Spy;
+
+  beforeEach(() => {
+    fakeMethod = jasmine.createSpy('fakeMethodDemo');
+    fakeMethod();
+  });
+
+  it('[jasmine.createSpy] - example 1', () => {
+    expect(fakeMethod).toBeDefined();
+  });
+  it('[jasmine.createSpy] - example 2', () => {
+    expect(fakeMethod).toHaveBeenCalled();
+  });
+  it('[jasmine.createSpy] - example 3', () => {
+    expect(fakeMethod).toHaveBeenCalledTimes(1);
   });
 });

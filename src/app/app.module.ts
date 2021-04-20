@@ -7,6 +7,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { TestBtnClickComponent } from './components/test-btn-click/test-btn-click.component';
 import { SpyExamplesComponent } from './components/spy-examples/spy-examples.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SpyExamplesComponent } from './components/spy-examples/spy-examples.com
     BannerComponent,
     WelcomeComponent,
     TestBtnClickComponent,
-    SpyExamplesComponent
+    SpyExamplesComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,
