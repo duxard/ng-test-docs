@@ -9,6 +9,7 @@ import { TestBtnClickComponent } from './components/test-btn-click/test-btn-clic
 import { SpyExamplesComponent } from './components/spy-examples/spy-examples.component';
 import { PlaygroundComponent } from './playground/playground.component';
 import { LibDmPanelComponent } from './components/lib-dm-panel/lib-dm-panel.component';
+import { BtnClicksEmitComponent } from './components/btn-clicks-emit/btn-clicks-emit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LibDmPanelComponent } from './components/lib-dm-panel/lib-dm-panel.comp
     TestBtnClickComponent,
     SpyExamplesComponent,
     PlaygroundComponent,
-    LibDmPanelComponent
+    LibDmPanelComponent,
+    BtnClicksEmitComponent
   ],
   imports: [
     BrowserModule,
@@ -29,5 +31,3 @@ import { LibDmPanelComponent } from './components/lib-dm-panel/lib-dm-panel.comp
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-//@todo: add PO base
